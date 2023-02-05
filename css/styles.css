@@ -17,7 +17,7 @@ header>h1 {
     font-size: 1.75em;
 }
 
-header>h1.mobile-only-title {
+.mobile-only-title {
     display: none;
 }
 
@@ -92,15 +92,15 @@ section>h2 {
 
 /* Mobile */
 @media screen and (max-width: 767px) {
-    header>h1.mobile-only-title {
+    .mobile-only-title {
         display: block;
-        font-size: 1.25em;
+        font-size: 0.75em;
         text-align: left;
         margin-left: 20px;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
 
-    header>h1.non-mobile-title {
+    .non-mobile-title {
         display: none;
     }
 
