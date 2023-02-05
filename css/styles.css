@@ -1,34 +1,68 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     box-sizing: border-box;
+
+    margin: 0px;
 }
 
 #container {
-    margin: 0;
+    width: fit-content;
 }
 
 header {
     text-align: center;
 }
 
-section {
-    border: 1px solid black;
-    background-color: grey;
-    float: left;
-
-    width: 30%;
-    margin: 10px;
+header>h1 {
+    font-size: 1.75em;
 }
 
-h2 {
-    border: 1px solid black;
-    margin: 0px;
-    text-align: right;
-    padding-right: 10px;
+header>h1.mobile-only-title {
+    display: none;
 }
 
 .row {
     margin: 0 10px 0 10px;
+}
+
+.col {
+    width: calc(33.3% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+    float: left;
+}
+
+section {
+    border: 1px solid black;
+    background-color: grey;
+    padding-bottom: 1em;
+}
+
+section>p {
+    padding: 0 20px 0 20px;
+    margin: 2.5em 0 0 0;
+    overflow: hidden;
+    max-height: 9em;
+    font-size: 1em;
+}
+
+section>p:hover {
+    overflow-y: scroll;
+    cursor: ns-resize;
+    padding-right: 5px;
+}
+
+section>h2 {
+    border: 1px solid black;
+    margin: 0px;
+    text-align: center;
+    float: right;
+    font-size: 1.25em;
+    width: 7em;
+    position: relative;
+    right: -1px;
+    top: -1px;
+    padding: 5px;
 }
 
 .chicken-title {
@@ -42,4 +76,77 @@ h2 {
 
 .sushi-title {
     background-color: beige;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .col {
+        width: calc(50% - 20px);
+    }
+
+    .col:last-of-type {
+        width: calc(100% - 20px);
+        margin-top: 20px;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+    header>h1.mobile-only-title {
+        display: block;
+        font-size: 1.25em;
+        text-align: left;
+        margin-left: 20px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    header>h1.non-mobile-title {
+        display: none;
+    }
+
+    section>h2 {
+        float: unset;
+        width: calc(100% - 10px);
+        right: 1px;
+    }
+
+    section>p {
+        margin-top: 0.25em;
+    }
+
+    .col {
+        width: calc(100% - 20px);
+    }
+
+    .col:not(:first-of-type) {
+        margin-top: 10px;
+    }
+
+    .col:not(:last-of-type) {
+        margin-bottom: 10px;
+    }
+
+    .chicken-title::before {
+        content: "Raw ";
+    }
+
+    .chicken-title::after {
+        content: ": This Will Surely Give You A Nasty Case of Salmonella and Shigella";
+    }
+
+    .beef-title::before {
+        content: "Overcooked ";
+    }
+
+    .beef-title::after {
+        content: ": The Rubber of Your Shoes Will Taste Better, Car Tires Too";
+    }
+
+    .sushi-title::before {
+        content: "Live ";
+    }
+
+    .sushi-title::after {
+        content: ": Fish That is So Fresh, it is Still Swimming, but At Least it's Not Overcooked";
+    }
 }
