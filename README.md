@@ -13,3 +13,5 @@ Module 2 Solution: https://wjchan926.github.io/frontend_jhu/mod2_solution/
 Module 3 Solution: https://wjchan926.github.io/frontend_jhu/mod3_solution/
 
 Module 4 Solution: https://wjchan926.github.io/frontend_jhu/mod4_solution/
+
+Module 5 Solution: https://wjchan926.github.io/frontend_jhu/mod5_solution/
