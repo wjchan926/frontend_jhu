@@ -153,7 +153,6 @@ dc.loadMenuItems = function (categoryShort) {
     buildAndShowMenuItemsHTML);
 };
 
-
 // Builds HTML for the categories page based on the data
 // from the server
 function buildAndShowCategoriesHTML (categories) {
@@ -334,7 +333,34 @@ function insertItemPortionName(html,
   return html;
 }
 
+// Load about.html
+dc.loadAbout = function (){
+  const rating = _randOneToFive();
+  const htmlAboutUrl = "snippets/about.html";
+
+  $ajaxUtils.sendGetRequest(htmlAboutUrl, function(aboutHtml){
+    let aboutHtmlStr = aboutHtml
+    for(let i = 1; i <= 5; i++){
+      const propName = "class" + i;
+      const propValue = i <= rating ? "fa fa-star" : "fa fa-star-o";
+  
+      aboutHtmlStr = insertProperty(aboutHtmlStr, propName,  propValue);
+    }
+    aboutHtmlStr += ` ${rating}-Star Rating`;
+    insertHtml("#main-content", aboutHtmlStr);
+  }, false)
+}
 
 global.$dc = dc;
 
 })(window);
+
+/**
+ * Private util function to return a random number between 1 and 5 inclusive
+ * @returns Random int between 1 and 5 inclusive
+ */
+function _randOneToFive(){
+  const LOW = 1;
+  const HIGH = 5 + 1; // inclusive
+  return Math.floor(Math.random() * (HIGH - LOW)) + LOW;
+}
