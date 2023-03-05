@@ -19,6 +19,8 @@
       // Dont bother processing
       if (!$scope.lunchList.length) {
         handleEmpty();
+        // Reset emptyItemErrorMsg
+        $scope.emptyItemErrorMsg = "";
         return;
       }
 
