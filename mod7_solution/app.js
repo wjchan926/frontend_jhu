@@ -18,7 +18,7 @@
 
   AlreadyBoughtController.$inject = ["ShoppingListCheckOffService"];
   function AlreadyBoughtController(ShoppingListCheckOffService) {
-    this.currencySymbol = "$".repeat(3);
+    this.currencySymbol = "$$$$$";
     this.boughtList = ShoppingListCheckOffService.getBoughtList();
     this.calcCost = (item) => ShoppingListCheckOffService.calcCost(item);
   }
