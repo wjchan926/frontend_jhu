@@ -1,0 +1,35 @@
+<div ng-controller="SignupController as signup" class="container">
+    <h2>Sign up for our newsletter!</h2>
+    <form name="signupForm" novalidate>
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control" name="firstName" ng-model="signup.firstName" required>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" class="form-control" name="lastName" ng-model="signup.lastName" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" class="form-control" name="email" ng-model="signup.email" required>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" class="form-control" name="phoneNumber" ng-model="signup.phoneNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="favoriteDish">Favorite Dish Menu Number:</label>
+            <input type="text" class="form-control" name="favoriteDishNum" ng-model="signup.favoriteDishNum"
+                ng-model-options="{ debounce: signup.DEBOUNCE }" ng-change="signup.validateFavoriteDish()" required>
+            <div ng-if="signup.isMenuItemNotFound" style="color: red;">
+                No such menu number exists.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-click="signup.onSubmit(signupForm)"
+            ng-disabled="signupForm.$invalid || signup.isMenuItemNotFound">Submit</button>
+    </form>
+
+    <div ng-if="signup.isInfoSaved">
+        You information has been saved.
+    </div>
+</div>
