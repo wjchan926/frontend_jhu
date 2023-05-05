@@ -1,0 +1,26 @@
+<div class="container" ng-controller="MyInfoController as infoCtrl">
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>My Information</h3>
+        <hr>
+      </div>
+    </div>
+  
+    <div class="row" ng-if="infoCtrl.notRegistered">
+      <div class="col-xs-12">
+        <p>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></p>
+      </div>
+    </div>
+  
+    <div class="row" ng-if="!infoCtrl.notRegistered">
+      <div class="col-xs-12 col-sm-6">
+        <p><strong>First Name:</strong> {{infoCtrl.user.firstName}}</p>
+        <p><strong>Last Name:</strong> {{infoCtrl.user.lastName}}</p>
+        <p><strong>Email:</strong> {{infoCtrl.user.email}}</p>
+        <p><strong>Phone Number:</strong> {{infoCtrl.user.phoneNumber}}</p>
+        <p><strong>Favorite Dish:</strong></p>
+        <menu-item menu-item="infoCtrl.favoriteDish" category-short-name="infoCtrl.favoriteDish.category"></menu-item>
+      </div>
+    </div>
+  </div>
+  
